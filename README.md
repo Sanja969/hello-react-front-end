@@ -1,4 +1,4 @@
-# Hello world
+# Hello world - front-end
 
 - React with Greeting component for showing random message that is fetch from API that I made in [hello-rails-back-end](https://github.com/Sanja969/hello-rails-back-end) repo
 

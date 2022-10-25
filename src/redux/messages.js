@@ -14,15 +14,12 @@ const messagesReducer = (state = initialState, action) => {
 export default messagesReducer;
 
 export const getMessage = () => async (dispatch) => {
-  const response = await fetch(url, { mode: 'cors', method: 'GET',
-  headers: {
-    accept: 'application/json'}
-  },);
+  const response = await fetch(url);
   if (!response.ok) {
     throw new Error(`Error! status: ${response.status}`);
   }
   const json = await response.json();
-  const message = json
+  const message = json;
   dispatch({
     type: GET_MESSAGE,
     message,

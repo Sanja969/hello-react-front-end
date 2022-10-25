@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getMessage } from '../redux/messages';
 
 const Greeting = () => {
-  const url = 'http://127.0.0.1:3000/greetings';
-  const [greeting, setGreeting] = useState('');
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    fetch(url)
-    .then((response) => response.json())
-    .then((greeting) => setGreeting(greeting.text));
-  
-  }, []);
+    dispatch(getMessage());
+  }, [])
+
+  const greeting = useSelector((state) => state.message);
 
   return (
-    <h3>{greeting}</h3>
+    <h3>{greeting.text}</h3>
   )
 }
 
